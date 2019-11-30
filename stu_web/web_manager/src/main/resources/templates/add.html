@@ -5,7 +5,7 @@
     <title>添加学生页面</title>
 </head>
 <body>
-<form>
+<form action="/stu/addStu" method="post">
 
     <table>
         <tr>
@@ -21,8 +21,8 @@
         <tr>
             <td>所属班级</td>
             <td>
-                <select th:each="c :${clist}" name="cid">
-                    <option th:value="${c.id}" ></option>
+                <select  name="cid">
+                    <option th:each="c :${clist}" th:value="${c.id}" th:text="${c.cname}"></option>
                 </select>
             </td>
             <td></td>

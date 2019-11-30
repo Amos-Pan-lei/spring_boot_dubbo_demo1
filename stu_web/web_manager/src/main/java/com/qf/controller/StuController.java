@@ -42,5 +42,11 @@ public class StuController {
         model.addAttribute("clist",classes);
         return "add";
     }
+    @RequestMapping("/addStu")
+    public String addStu(Model model,Student student){
+
+        stuService.addStudent(student);
+        return "redirect:/stu/list";
+    }
 
 }

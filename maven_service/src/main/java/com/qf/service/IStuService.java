@@ -8,4 +8,6 @@ public interface IStuService {
     List<Student> getlist();
 
     void deleteById(Integer id);
+
+    void addStudent(Student student);
 }

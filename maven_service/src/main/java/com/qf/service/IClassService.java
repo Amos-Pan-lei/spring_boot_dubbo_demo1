@@ -9,4 +9,5 @@ public interface IClassService {
 
     StuClass getClassInfo(Integer cid);
 
+    void updateSnum(Integer cid);
 }

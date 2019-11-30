@@ -29,4 +29,11 @@ public class ClassServiceImpl implements IClassService {
         StuClass stuClass = classMapper.selectById(cid);
         return stuClass;
     }
+
+    @Override
+    public void updateSnum(Integer cid) {
+        StuClass stuClass = classMapper.selectById(cid);
+        stuClass.setCnum(stuClass.getCnum()+1);
+        classMapper.updateById(stuClass);
+    }
 }

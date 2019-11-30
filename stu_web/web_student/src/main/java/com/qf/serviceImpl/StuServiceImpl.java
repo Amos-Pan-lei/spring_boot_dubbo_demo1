@@ -40,4 +40,10 @@ public class StuServiceImpl implements IStuService {
     public void deleteById(Integer id) {
         stuMapper.deleteById(id);
     }
+
+    @Override
+    public void addStudent(Student student) {
+        stuMapper.insert(student);
+        classService.updateSnum(student.getCid());
+    }
 }
