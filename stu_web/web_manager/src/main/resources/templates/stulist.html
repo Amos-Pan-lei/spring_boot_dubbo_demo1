@@ -19,7 +19,7 @@
         <td th:text="${s.age}">年龄</td>
         <td th:text="${s.cls.cname}">班级</td>
         <td ><a th:href="|/stu/deleteById?id=${s.id}|">删除</a>
-            <a href="/stu/queryById">修改</a>
+            <a th:href="|/stu/queryById?id=${s.id}|">修改</a>
             <a href="/stu/add">添加</a>
         </td>
     </tr>

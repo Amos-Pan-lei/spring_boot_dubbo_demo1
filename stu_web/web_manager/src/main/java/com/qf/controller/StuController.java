@@ -48,6 +48,15 @@ public class StuController {
         stuService.addStudent(student);
         return "redirect:/stu/list";
     }
+    @RequestMapping("/queryById")
+    public String queryById(Model model,Integer id){
+        List<StuClass> classes = classService.getlist();
+        model.addAttribute("clist",classes);
+        Student student = stuService.getById(id);
+        model.addAttribute("s",student);
+        return "updateStu";
+    }
+
 
     @RequestMapping("getListByCid")
     public String getListByCid(StuClass stuClass,Model model){
@@ -61,6 +70,20 @@ public class StuController {
         model.addAttribute("stulist",students);
 
         return "stulist2";
+    }
+
+    @RequestMapping("/updateStu")
+    public String updateStu(Student s,Model model) {
+        Student student = stuService.getById(s.getId());
+        //把原来的班级人数减一
+        classService.decrease(student.getCid());
+
+        //把新的班级人数加一个
+        classService.updateSnum(s.getCid());
+        stuService.updateById(s);
+
+        return "redirect:/stu/list";
+
     }
 
 }

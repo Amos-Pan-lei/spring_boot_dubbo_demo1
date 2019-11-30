@@ -36,4 +36,11 @@ public class ClassServiceImpl implements IClassService {
         stuClass.setCnum(stuClass.getCnum()+1);
         classMapper.updateById(stuClass);
     }
+
+    @Override
+    public void decrease(Integer cid) {
+        StuClass stuClass = classMapper.selectById(cid);
+        stuClass.setCnum(stuClass.getCnum()-1);
+        classMapper.updateById(stuClass);
+    }
 }

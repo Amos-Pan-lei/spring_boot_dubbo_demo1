@@ -10,4 +10,6 @@ public interface IClassService {
     StuClass getClassInfo(Integer cid);
 
     void updateSnum(Integer cid);
+
+    void decrease(Integer cid);
 }
