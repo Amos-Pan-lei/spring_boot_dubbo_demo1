@@ -27,5 +27,16 @@ public class ClassController {
         return "classList";
     }
 
+    @RequestMapping("toAddClass")
+    public String toAddClass(){
+        return "addClass";
+    }
+
+    @RequestMapping("AddClass")
+    public String addClass(StuClass stuClass){
+        classService.save(stuClass);
+        return "redirect:/class/list";
+    }
+
 
 }

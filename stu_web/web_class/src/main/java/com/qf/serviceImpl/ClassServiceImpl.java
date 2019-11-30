@@ -1,6 +1,7 @@
 package com.qf.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qf.dao.ClassMapper;
 import com.qf.entity.StuClass;
 import com.qf.service.IClassService;
@@ -13,7 +14,7 @@ import java.util.List;
  * Creat Time 2019 11 29
  */
 @Service
-public class ClassServiceImpl implements IClassService {
+public class ClassServiceImpl extends ServiceImpl<ClassMapper,StuClass> implements IClassService {
     @Autowired
     private ClassMapper classMapper;
 
