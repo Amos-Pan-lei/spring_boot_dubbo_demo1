@@ -1,0 +1,9 @@
+server:
+  port: 80
+dubbo:
+  application:
+    name: Infor-manager
+  registry:
+    address: zookeeper://47.106.39.234:2181
+  consumer:
+    check: false

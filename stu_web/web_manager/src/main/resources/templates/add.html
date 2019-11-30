@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生页面</title>
+</head>
+<body>
+<form>
+
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td><input type="text" name="sname"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td><input type="text" name="age"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>所属班级</td>
+            <td>
+                <select th:each="c :${clist}" name="cid">
+                    <option th:value="${c.id}" ></option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" th:value="提交"></td>
+            <td><input type="reset" th:value="重置"></td>
+            <td></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
