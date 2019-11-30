@@ -26,4 +26,6 @@ public class ClassController {
         model.addAttribute("clist",list);
         return "classList";
     }
+
+
 }

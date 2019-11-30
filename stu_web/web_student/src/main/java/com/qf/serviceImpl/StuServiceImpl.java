@@ -2,6 +2,7 @@ package com.qf.serviceImpl;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qf.dao.StuMapper;
 import com.qf.entity.StuClass;
 import com.qf.entity.Student;
@@ -16,7 +17,7 @@ import java.util.List;
  * Creat Time 2019 11 29
  */
 @Service
-public class StuServiceImpl implements IStuService {
+public class StuServiceImpl extends ServiceImpl<StuMapper,Student> implements IStuService {
 
     @Reference
     private IClassService classService;
@@ -46,4 +47,5 @@ public class StuServiceImpl implements IStuService {
         stuMapper.insert(student);
         classService.updateSnum(student.getCid());
     }
+
 }

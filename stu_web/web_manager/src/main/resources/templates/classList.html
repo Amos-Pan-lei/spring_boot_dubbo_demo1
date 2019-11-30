@@ -16,7 +16,7 @@
     <td th:text="${c.id}"></td>
     <td th:text="${c.cname}"></td>
     <td th:text="${c.cnum}"></td>
-    <td><a >查看班级成员</a><a>删除班级</a></td>
+    <td><a th:href="|/stu/getListByCid?id=${c.id}|">查看班级成员</a></td>
 </tr>
 </table>
 </body>

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Author Amos
@@ -47,6 +47,20 @@ public class StuController {
 
         stuService.addStudent(student);
         return "redirect:/stu/list";
+    }
+
+    @RequestMapping("getListByCid")
+    public String getListByCid(StuClass stuClass,Model model){
+        Map<String,Object> map=new HashMap<>();
+        map.put("cid",stuClass.getId());
+        List<Student> students = (List<Student>) stuService.listByMap(map);
+        StuClass classInfo = classService.getClassInfo(stuClass.getId());
+        for (Student student : students) {
+            student.setCls(classInfo);
+        }
+        model.addAttribute("stulist",students);
+
+        return "stulist2";
     }
 
 }
